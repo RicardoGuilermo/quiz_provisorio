@@ -1,36 +1,40 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <title>Quiz</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" media="only screen and (min-width: 530px) and (min-device-width: 481px)" type="text/css" href="/stylesheets/wide.css">
-    <link rel="stylesheet" media="only screen and (max-width:480px)" type="text/css" href="/stylesheets/smartphone.css">
-  </head>
-  <body>
-    <div id="page-wrap">
-      
-      <header id="h1" class="main">
-        <h1>Hola layout el juego de las preguntas</h1>
-      </header>
-      
-      <nav class="main" id="n1">
-        <span><a href="/">Inicio</a></span>
-        <span><a href="/quizes/question">Preguntas</a></span>
-        <span><a href="/author">Autor</a></span>
-      </nav>
-      
-      <section class="main" id="s1">
-        <%- body %>
-      </section>
+<html>
+<head>
+	<meta charset="utf-8"><title> Preguntas </title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel='stylesheet'
+		type='text/css'
+		media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		href='/stylesheets/wide.css' />
+		<link rel='stylesheet'
+		type='text/css'
+		media='only screen and (max-width: 480px)'
+		href='/stylesheets/smartphone.css' />
+</head>
 
-      <footer class="main" id="f1">
-        <a href="http://es.wikipedia.org/wiki/Quiz">¿Qué es Quiz?</a>
-        <a href="https://github.com/RicardoGuilermo/miQuiz.git">Repositorio de Ricardo Guillermo</a>
-      </footer>
-    
-    </div>
-  </body>
+<body>
+	<div id="page-wrap">
+		<header class="main" id="h1">
+		<h2>Quiz<span>: el juego de las preguntas</span></h2>
+		</header>
+
+		<nav class="main" id="n1" role="navigation">
+			<span><a href="/">Inicio</a></span>
+			<span><a href="/quizes">Preguntas</a></span>
+			<span><a href="/author">Créditos</a></span>
+		</nav>
+
+		<section class="main" id="s1">
+			<div>
+				<%- body %>
+			</div>
+		</section>
+
+		<footer class="main" id="f1">
+			<a href="http://es.wikipedia.org/wiki/Quiz">¿Que es un Quiz?</a>
+			<a href="https://github.com/b4rt0l4/quiz-project"> Repositorio en GitHub de quiz-project </a>
+		</footer>
+	</div>
+</body>
 </html>

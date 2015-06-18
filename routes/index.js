@@ -2,17 +2,24 @@ var express = require('express');
 var router = express.Router();
 
 var quizController = require('../controllers/quiz_controller');
+var authorController = require('../controllers/author_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz1' });
+  res.render('index', { title: 'Quiz' });
 });
 
+// Autoload de comandos con :quizId
+router.param('quizId', quizController.load);  // autoload :quizId
 
-router.get('/author', function(req, res, next) { res.render('author'); });
+// Definición de rutas de /quizes
+router.get('/quizes', 			quizController.index);
+router.get('/quizes/:quizId(\\d+)',	quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer',	quizController.answer);
 
-
-router.get('/quizes/question', quizController.question);
-router.get('/quizes/answer', quizController.answer);
+/* GET author page. */
+router.get('/author', authorController.author);
 
 module.exports = router;
+
+
