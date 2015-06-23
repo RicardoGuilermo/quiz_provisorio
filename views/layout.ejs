@@ -26,6 +26,16 @@
 		</nav>
 
 		<section class="main" id="s1">
+
+			<% if (errors.length) { %>
+      			<span id='ErrorMsgs'>
+        			Corregir errores:<br/>
+        			<% for (var i in errors) { %>
+           				<span> <%= errors[i].message %> </span><br/>
+        			<% } %>
+      			</span>
+    		<% } %>
+
 			<div>
 				<%- body %>
 			</div>
@@ -33,7 +43,7 @@
 
 		<footer class="main" id="f1">
 			<a href="http://es.wikipedia.org/wiki/Quiz">¿Que es un Quiz?</a>
-			<a href="https://github.com/RicardoGuilermo/miQuiz.git"> Repositorio GITHUB</a>
+			<a href="https://github.com/RicardoGuilermo/quiz_provisorio"> Repositorio  GitHub </a>
 		</footer>
 	</div>
 </body>
