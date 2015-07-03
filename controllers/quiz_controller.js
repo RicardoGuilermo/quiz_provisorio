@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 var models = require('../models/models.js');
 var Promise = require('sequelize').Promise;
@@ -53,6 +54,67 @@ exports.index = function(req, res){
 	  		res.render('quizes/index', {quizes: quizes, errors: []});
 		}
 	}).catch(function (error) { next(error); });
+=======
+var models = require ('../models/models.js');
+
+// Autoload - factoriza el código si ruta incluye :quizId
+exports.load = function(req, res, next, quizId) {
+	models.Quiz.find(quizId).then(
+		function(quiz) {
+			if (quiz) {
+				req.quiz = quiz;
+				next();
+			} else {
+				next(new Error('No existe quizId=' + quizId));
+			}
+		}
+	).catch(function(error) { next(error);});
+};
+
+// GET /quizes
+exports.index = function(req, res) {
+
+	var busqueda = req.query.search;
+	if (busqueda) {
+		busqueda = busqueda.toLowerCase().trim();
+		busqueda = busqueda.replace(' ','%');
+	}
+
+	models.Quiz.findAll(busqueda ? {where: ["lower(pregunta) like ?", '%' + busqueda + '%']} : {}).then(
+		function(quizes) {
+			res.render('quizes/index.ejs', {quizes: quizes});
+		}
+	).catch(function(error) {next(error);});
+};
+
+//Get /quizes/:id
+exports.show = function (req, res) {
+	res.render('quizes/show', {quiz: req.quiz});
+};
+
+// GET /quizes/:id/answer
+exports.answer = function(req, res) {
+	var respuesta = req.query.respuesta.toLowerCase().trim();
+	var resultado = 'Incorrecto';
+
+	if (respuesta === req.quiz.respuesta.toLowerCase()) {
+  		resultado = 'Correcto';
+  	}
+  	res.render('quizes/answer', {quiz: req.quiz, respuesta: resultado});
+
+};
+
+   
+
+
+
+
+/*
+respaldo andaba bien
+// GET quizes/question
+exports.question = function (req, res) {
+	res.render('quizes/question', { pregunta: 'Capital de Italia'});
+>>>>>>> 216e3cb4fbf3ed890181e9aa924a93fb6fab5c95
 };
 
 exports.show = function(req, res){
@@ -75,6 +137,7 @@ exports.new = function(req, res){
 	var quiz = models.Quiz.build({pregunta: '', respuesta: '', categoria: ''});
 	res.render('quizes/new', {quiz: quiz, errors: [], temas: temas});
 };
+<<<<<<< HEAD
 
 exports.create = function(req, res){
 	var quiz = models.Quiz.build(req.body.quiz);
@@ -160,3 +223,6 @@ exports.statistics = function(req, res, next){
 		res.render('quizes/statistics', {estadisticas: estadisticas, errors: {}});
 	}).catch(function (error) { next(error); });
 };
+=======
+*/
+>>>>>>> 216e3cb4fbf3ed890181e9aa924a93fb6fab5c95

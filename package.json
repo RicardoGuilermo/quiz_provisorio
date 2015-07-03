@@ -10,7 +10,11 @@
     "npm": "2.9.1"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "sqlite3": "^3.0.8"
+=======
+    "sqlite3": "~2.2.0"
+>>>>>>> 216e3cb4fbf3ed890181e9aa924a93fb6fab5c95
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -21,11 +25,17 @@
     "debug": "~2.0.0",
     "ejs": "~0.8.5",
     "express-partials": "^0.3.0",
+<<<<<<< HEAD
     "sequelize": "~2.0.0",
     "method-override": "^2.3.1",
     "pg": "~4.1.1",
     "pg-hstore": "~2.3.2",
     "express-session": "~1.11.3"
     "multer": "~0.1.8"
+=======
+    "sequelize": "~1.7.0",
+    "pg": "~4.1.1",
+    "pg-hstore": "~2.3.2"
+>>>>>>> 216e3cb4fbf3ed890181e9aa924a93fb6fab5c95
   }
 }
