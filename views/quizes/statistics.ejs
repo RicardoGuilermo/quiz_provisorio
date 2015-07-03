@@ -1,0 +1,8 @@
+<h2>Estadísticas</h2>
+<br>
+<dl>
+	<% for(var index in estadisticas) { %>
+		<dt><%= estadisticas[index].descripcion %></dt>
+		<dd><%= estadisticas[index].resultado %></dd>
+	<% } %>
+</dl>
