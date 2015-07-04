@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-// Definicion del modelo de Quiz con validación, tema, Comentarios 
+
 var path = require('path');
 
 module.exports = function(sequelize, DataTypes) {
@@ -34,15 +33,3 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		);
 }
-=======
-// Definicion del modelo de Quiz
-
-module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('Quiz',
-		{
-			pregunta:  DataTypes.STRING,
-        	respuesta: DataTypes.STRING,
-    	}
- 	);
-};
->>>>>>> 216e3cb4fbf3ed890181e9aa924a93fb6fab5c95
