@@ -31,9 +31,7 @@
     "express-session": "~1.11.3",
     "multer": "~0.1.8",
 
-    "sequelize": "~1.7.0",
-    "pg": "~4.1.1",
-    "pg-hstore": "~2.3.2"
+    
 
   }
 }
